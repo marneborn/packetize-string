@@ -1,0 +1,27 @@
+{
+  "name": "packetize-string",
+  "version": "0.0.0",
+  "description": "Packetize and rebuild a string. Mostly for TCP communication.",
+  "main": "packetize-string.js",
+  "scripts": {
+    "test": "node --harmony node_modules/jasmine-node/bin/jasmine-node tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marneborn/packetize-string"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "tcp",
+    "packet",
+    "packetize",
+    "split"
+  ],
+  "author": "Mikael Arneborn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marneborn/packetize-string/issues"
+  },
+  "homepage": "https://github.com/marneborn/packetize-string"
+}
