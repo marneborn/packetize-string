@@ -1,0 +1,23 @@
+{
+
+  "tags": {
+    "allowUnknownTags": true
+  },
+
+  "source": {
+    "include" : ["./lib/packetize-string.js"]
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+
+  "plugins": [ "plugins/markdown" ],
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}
