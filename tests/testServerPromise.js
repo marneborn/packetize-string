@@ -10,20 +10,15 @@ net.createServer(function (socket) {
     
     console.log('Talking to: ' + socket.remoteAddress +':'+ socket.remotePort);
 
-    let receiver = new Packetizer.Receiver();
-
-    receiver.on('message', function (msg) {
+    Packetizer.receive(socket).then(
+        function ( msg ) {
         console.log("Heard: "+msg);
         socket.write(Packetizer.send('You said \"'+msg+'"'));
     });
 
-    socket.on('data', function (chunk) { receiver.accumulate(chunk); });
-
     socket.on('close', function(data) {
         console.log('CLOSED: ' + socket.remoteAddress +' '+ socket.remotePort);
     });
-    
-    socket.on('error', function (e) { console.log("-E- "+e); });
 })
 .listen(PORT, HOST);
 
