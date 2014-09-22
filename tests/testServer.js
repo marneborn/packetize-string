@@ -6,32 +6,26 @@ let Packetizer = require('../index.js');
 var HOST = '127.0.0.1';
 var PORT = 6969;
 
-let sender   = new Packetizer.Sender();
-let receiver = new Packetizer.Receiver();
-
 net.createServer(function (socket) {
     
     console.log('Talking to: ' + socket.remoteAddress +':'+ socket.remotePort);
 
-    sock.on('data', receiver.accumulate);
+    let receiver = new Packetizer.Receiver();
 
-    setInterval( function () {
-        if ( !receiver.hasMessage() )
-            return;
+    receiver.on('message', function (msg) {
+        console.log("Heard: "+msg);
+        socket.write(""+new Packetizer.Sender('You said \"'+msg+'"'));
+    });
 
-        let data = receiver.next();
-        console.log('DATA ' + sock.remoteAddress + ': ' + data);
-        // Write the data back to the socket, the client will receive it as data from the server
-        sock.write('You said "' + data + '"');
-        
+    socket.on('data', function (chunk) { receiver.accumulate(chunk); });
+
+    socket.on('close', function(data) {
+        console.log('CLOSED: ' + socket.remoteAddress +' '+ socket.remotePort);
     });
     
-    // Add a 'close' event handler to this instance of socket
-    sock.on('close', function(data) {
-        console.log('CLOSED: ' + sock.remoteAddress +' '+ sock.remotePort);
-    });
-    
-}).listen(PORT, HOST);
+    socket.on('error', function (e) { console.log("-E- "+e); });
+})
+.listen(PORT, HOST);
 
 console.log('Server listening on ' + HOST +':'+ PORT);
 
