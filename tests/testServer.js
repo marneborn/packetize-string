@@ -9,15 +9,10 @@ var PORT = 6969;
 let sender   = new Packetizer.Sender();
 let receiver = new Packetizer.Receiver();
 
-// Create a server instance, and chain the listen function to it
-// The function passed to net.createServer() becomes the event handler for the 'connection' event
-// The sock object the callback function receives UNIQUE for each connection
-net.createServer(function(sock) {
+net.createServer(function (socket) {
     
-    // We have a connection - a socket object is assigned to the connection automatically
-    console.log('CONNECTED: ' + sock.remoteAddress +':'+ sock.remotePort);
-    
-    // Add a 'data' event handler to this instance of socket
+    console.log('Talking to: ' + socket.remoteAddress +':'+ socket.remotePort);
+
     sock.on('data', receiver.accumulate);
 
     setInterval( function () {
