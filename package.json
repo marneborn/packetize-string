@@ -1,6 +1,6 @@
 {
   "name": "packetize-string",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Packetize and rebuild a string. Mostly for TCP communication.",
   "main": "index.js",
   "scripts": {
