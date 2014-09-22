@@ -12,9 +12,10 @@ net.createServer(function (socket) {
 
     Packetizer.receive(socket).then(
         function ( msg ) {
-        console.log("Heard: "+msg);
-        socket.write(Packetizer.send('You said \"'+msg+'"'));
-    });
+            console.log("Heard: "+msg);
+            socket.write(Packetizer.send('You said \"'+msg+'"'));
+        }
+    );
 
     socket.on('close', function(data) {
         console.log('CLOSED: ' + socket.remoteAddress +' '+ socket.remotePort);

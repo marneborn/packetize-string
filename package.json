@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/marneborn/packetize-string",
   "devDependencies": {
-    "jasmine-node": "^2.0.0"
+    "jasmine-node": "^2.0.0",
+    "mock-promises": "0.0.3"
   },
   "dependencies": {
     "node.extend": "^1.1.2",
