@@ -1,6 +1,6 @@
 {
   "name": "packetize-string",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Packetize and rebuild a string. Mostly for TCP communication.",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,6 @@
   "homepage": "https://github.com/marneborn/packetize-string",
   "devDependencies": {
     "jasmine-node": "^2.0.0",
-    "mock-promises": "0.0.3"
   },
   "dependencies": {
     "node.extend": "^1.1.2",
