@@ -12,8 +12,8 @@ npm install --save packetize-string
 Messages can be packetizes with either the [packetize-string.send(<String>)](#sendFn) function or by using the [Sender object](#sendOO).<br>
 Messages can be extracted with either the [listener on the Receiver object](rcvLsnr) or the [promise returned by packetize-string.receive(socket)].
 
-### Sending a message - using the send function (recommended)
 <a name="sendFn"></a>
+### Sending a message - using the send function (recommended)
 ```javascript
 "use strict";
 
@@ -28,8 +28,8 @@ client.connect(port, host, function() {
 });
 ```
 
-### Sending a message - using the object
 <a name="sendOO"></a>.
+### Sending a message - using the object
 ```javascript
 "use strict";
 
@@ -47,8 +47,8 @@ client.connect(port, host, function() {
 });
 ```
 
-### Receive a message - using a listener (recommended)
 <a name="rcvLsnr"></a>.
+### Receive a message - using a listener (recommended)
 If the sender sends multiple messages (like in the "Sending a message - using the object" example above", each message causes it's own event, so the 'on' will fire for each message.
 ```javascript
 "use strict";
@@ -74,8 +74,8 @@ net.createServer(function (socket) {
 .listen(port, host);
 ```
 
-### Receive a message - using a promise (in progress)
 <a name="rcvPrms"></a>.
+### Receive a message - using a promise (in progress)
 If the sender sends multiple messages (like in the "Sending a message - using the object" example above", only the first message is passed on to the success callback. Any other messages will be lost.
 
 ```javascript
