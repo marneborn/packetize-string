@@ -10,7 +10,7 @@ npm install --save packetize-string
 
 ## Usage
 Messages can be packetizes with either the [packetize-string.send(<String>)](#sendFn) function or by using the [Sender object](#sendOO).<br>
-Messages can be extracted with either the [listener on the Receiver object](rcvLsnr) or the [promise returned by packetize-string.receive(socket)].
+Messages can be extracted with either the [listener on the Receiver object](#rcvLsnr) or the [promise returned by packetize-string.receive(socket)](#rcvPrms)
 
 <a name="sendFn"></a>
 ### Sending a message - using the send function (recommended)
