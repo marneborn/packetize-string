@@ -101,5 +101,17 @@ net.createServer(function (socket) {
 .listen(port, host);
 ```
 
+# How it works
+The first character in a packet is the header.<br>
+The first 5 bits of the header are reserved for the "mode" (future enhancements).<br>
+
+<br>The default mode:
+- The next 11 bits are the number of characters in the packet.
+- If the length is 2047 (0x7F) then there is more of the message in the next packet.
+- - If the message is exactly 2046 characters (+1 for header) then an empty packet is sent to end the message.
+
+Some ideas for future modes:
+- conditionally strip the 0x00 from the front of characters if all characters are utf-8
+- Add MD5 as the tail to the packet
 
 
