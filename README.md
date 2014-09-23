@@ -8,6 +8,12 @@ Utility for converting arbitrary strings (aka messages) into packets which can b
 npm install --save packetize-string
 ```
 
+## How it works (default mode)
+The first character in a packet is the header.<br>
+The first 5 bits of the header are reserved for the "mode" (future enhancements).<br>
+The next 11 bits of the header are the number of characters in the packet.
+Long messages are split into multiple packets by the sender and stitched together by the receiver.
+
 ## Usage
 Messages can be packetizes with either the [packetize-string.send(<String>)](#sendFn) function or by using the [Sender object](#sendOO).<br>
 Messages can be extracted with either the [listener on the Receiver object](#rcvLsnr) or the [promise returned by packetize-string.receive(socket)](#rcvPrms)
@@ -101,10 +107,7 @@ net.createServer(function (socket) {
 .listen(port, host);
 ```
 
-# How it works
-The first character in a packet is the header.<br>
-The first 5 bits of the header are reserved for the "mode" (future enhancements).<br>
-
+## Modes (WIP)
 <br>The default mode:
 - The next 11 bits are the number of characters in the packet.
 - If the length is 2047 (0x7F) then there is more of the message in the next packet.
